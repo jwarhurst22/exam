@@ -1,10 +1,28 @@
 pipeline {
+    // Joshua Warhurst A01238312 Set 4B
+    // Exam Pipeline
+    parameters {
+        booleanParam(defaultValue: '', description: 'Run Target Scripts', name: 'TARGET')
+    }
     agent any
     stages {
-        stage('Hello'){
-            steps {
-                echo 'hello'
-            }
+        stage('Build') {
+                steps {
+                    echo 'Running The Requirements'
+                    sh 'pip install -r requirements.txt'
+                    echo 'Requirements Complete'
+                }
+        }
+        stage('Code Quality') {
+                steps {
+                    sh 'pylint --fail-under=5.0 *.py'
+                }
+            
+        }
+        stage('Code Quantity') {
+                steps {
+                    echo "find . -name '*.py' | xargs wc -l"
+                }
         }
     }
 }
