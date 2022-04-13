@@ -2,7 +2,7 @@ pipeline {
     // Joshua Warhurst A01238312 Set 4B
     // Exam Pipeline
     parameters {
-        booleanParam(defaultValue: '', description: 'Run Target Scripts', name: 'TARGET')
+        booleanParam(defaultValue: , description: 'Run Target Scripts', name: 'TARGET')
     }
     agent any
     stages {
