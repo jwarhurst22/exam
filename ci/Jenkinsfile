@@ -34,5 +34,13 @@ pipeline {
                     sh "python3 main.py laptop json output"
                 }
         }
+        stage('ZIP') {
+                steps {
+                    script{
+                        sh 'zip app.zip *.py'
+                    }
+                    archiveArtifacts artifacts: 'app.zip'
+                }
+            }
     }
 }
