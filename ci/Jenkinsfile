@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Code Quantity') {
                 steps {
-                    echo "find . -name '*.py' | xargs wc -l"
+                    sh "find . -name '*.py' | xargs wc -l"
                 }
         }
     }
