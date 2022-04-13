@@ -2,7 +2,7 @@ pipeline {
     // Joshua Warhurst A01238312 Set 4B
     // Exam Pipeline
     parameters {
-        booleanParam(defaultValue: , description: 'Run Target Scripts', name: 'TARGET')
+        booleanParam(defaultValue: false, description: 'Run Target Scripts', name: 'TARGET')
     }
     agent any
     stages {
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Run Scripts') {
             when {
-                    expression { params.TARGET == 'run' }
+                    expression { params.TARGET }
                 }
                 steps {
                     sh "python main.py phone text output"
