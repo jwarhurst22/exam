@@ -24,5 +24,15 @@ pipeline {
                     sh "find . -name '*.py' | xargs wc -l"
                 }
         }
+        stage('Run Scripts') {
+            when {
+                    expression { params.TARGET == 'run' }
+                }
+                steps {
+                    sh "python main.py phone text output"
+                    sh "python main.py tablet csv output"
+                    sh "python main.py laptop json output"
+                }
+        }
     }
 }
