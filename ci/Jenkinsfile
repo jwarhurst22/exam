@@ -42,5 +42,10 @@ pipeline {
                     archiveArtifacts artifacts: 'app.zip'
                 }
             }
+        stage('Name and Student Number') {
+                steps {
+                    echo 'Joshua Warhurst A01238312 Group 22'
+                }
+        }
     }
 }
